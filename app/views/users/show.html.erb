@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>GossipProject</title>
+  </head>
+  <body>
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4 align-center">Hey ! Salut <b><%= @author.first_name %></b> !</h1>
+  </div>
+</div>
+
+<br>
+<br>
+
+<main class="container">
+<div style="margin-bottom: 20px;">
+<div class="card">
+
+<div class="card-header">
+Information du compte
+</div>
+<div class="card-body">
+
+      <h5 class="card-title">Nom : <%= @author.last_name%> </h5>
+      <h5 class="card-title">Email : <%= @author.email%> </h5>
+      <h5 class="card-title">Ville : <%= @author.city.name %> </h5>
+
+      <p>
+        <%= link_to "Voir la ville", city_path(:id => @author.city.id), class:"btn btn-success", role:"button" %>
+      </p>
+
+  </body>
+</html>

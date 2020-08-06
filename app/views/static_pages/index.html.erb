@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>The Gossip Project</title>
+  </head>
+    <style type="text/css">
+   body {font-family: 'Nunito', sans-serif; text-align:center;}
+   </style>
+
+<body>
+
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+
+  <h1 class="display-6">Bienvenue dans The Gossip Project ! Ici on critique qui on veut !!! Crache ! Crache ! Crache !!!</h1>
+
+  <p class="lead">Voilà les derniers potins :</p>
+    </div>
+  </div>
+
+
+  <% @all_gossips.each do |gossip| %>
+<div class="card-group">
+    <div class="card-body">
+    <h5 class="card-title"><%= gossip.title %></b></h5>
+    <h6 class="card-subtitle mb-2 text-muted">par <b><%= gossip.user.first_name %> <%= gossip.user.last_name %></b></h6>
+    <%= link_to "Voir le potin", gossip_path(:id => gossip.id), class:"btn btn-primary btn-sm", role:"button" %>
+    
+    <% if logged_in? == true %>
+      <% if gossip.likes.where(user_id: current_user.id).count > 0 %>
+      <%= link_to "👎", like_path(:id=> gossip.likes.sample), class:"btn btn-danger btn-sm", role:"button", data: {:method => "delete"} %>
+      <% else %>
+      <%= link_to "👍", likes_path(:gossip_id=> gossip.id), class:"btn btn-info btn-sm", role:"button", data: {:method => "create"} %>
+    <% end %>
+    <span style="font-size:14px;">Likes :<%=gossip.likes.count %></span>
+    <% end %>
+  </div>
+  <% end %>
+
+
+
+
+  <p></p>
+  <a class="btn btn-warning" href="/gossips/new/" role="button">Crée un nouveau potin !</a>
+
+  </body>
+</html>
