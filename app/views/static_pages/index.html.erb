@@ -21,7 +21,7 @@
 
 
   <% @all_gossips.each do |gossip| %>
-<div class="card-group">
+<div class="card p-50">
     <div class="card-body">
     <h5 class="card-title"><%= gossip.title %></b></h5>
     <h6 class="card-subtitle mb-2 text-muted">par <b><%= gossip.user.first_name %> <%= gossip.user.last_name %></b></h6>
@@ -36,6 +36,7 @@
     <span style="font-size:14px;">Likes :<%=gossip.likes.count %></span>
     <% end %>
   </div>
+</div>
   <% end %>
 
 
