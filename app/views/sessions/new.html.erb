@@ -11,11 +11,11 @@
     <%= form_tag url_for(action: 'create'), method: "post" do %>
       <div class="form-group col-md-10">
         <%= label_tag 'Email'%><br>
-        <%= text_field_tag 'email'%>
+        <%= email_field_tag 'email'%>
         <br>
     
         <%= label_tag 'Mot de passe' %> <br>
-        <%= text_field_tag 'password'%><br>
+        <%= password_field_tag 'password'%><br>
         <br>
   
         <%= submit_tag "Connexion", class:"btn btn-success" %>

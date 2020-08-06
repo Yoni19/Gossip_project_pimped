@@ -46,8 +46,17 @@
       <%= link_to "Connexion", new_session_path, class:"btn btn-info btn-sm", role:"button" %>
     <% end %>
 
-
   </nav>
+
+  <header class="container ">
+      <%= link_to root_path do %>
+      <div style="align-center">
+        <h2><%= image_tag "gossip_logo.png" %>
+        <span font-size="60px">The GOSSIP project</span></h2>
+        </div>
+      <% end %>
+      <br>
+    </header>
 
   <body>
 
